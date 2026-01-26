@@ -1,0 +1,28 @@
+### 1) Default mood (missing mood => tired), no logging
+GET http://localhost:8081/quote
+Accept: application/json
+
+
+### 2) Happy mood
+GET http://localhost:8081/quote?mood=happy
+Accept: application/json
+
+
+### 3) Motivated mood + logging
+GET http://localhost:8081/quote?mood=motivated&log=true
+Accept: application/json
+
+
+### 4) Mood should be case-insensitive
+GET http://localhost:8081/quote?mood=HaPpY
+Accept: application/json
+
+
+### 5) Invalid mood => 400 with JSON error
+GET http://localhost:8081/quote?mood=hungry
+Accept: application/json
+
+
+### 6) Blank mood => treat as missing => tired
+GET http://localhost:8081/quote?mood=
+Accept: application/json
