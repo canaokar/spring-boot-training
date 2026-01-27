@@ -4,6 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
 
+import main.java.com.chinmay.getlogic.ErrorResponse;
+import main.java.com.chinmay.getlogic.Mood;
+
 import java.time.Instant;
 
 @SpringBootApplication
@@ -46,10 +49,8 @@ public class Lab01GetLogicApplication {
         // timestamp must be Instant.now().toString()
 
         return new ErrorResponse("NOT_IMPLEMENTED", "Complete the TODOs in /quote");
-    }
-
-    // TODO: Implement this helper to return a quote for each mood
-    private String getQuoteForMood(Mood mood) {
+    }Student mood)
+    {
         // Keep the quotes short and funny-ish.
         // Example:
         // HAPPY -> "Optimism: the only free subscription."
@@ -62,6 +63,9 @@ public class Lab01GetLogicApplication {
     // TODO: Implement this helper to parse mood safely (case-insensitive)
     // Rules:
     // - null/blank => Mood.TIRED
+    // - "happy" => Mood.HAPPY
+    // - invalid => return null (so controller can return 400)
+    private Studentank => Mood.TIRED
     // - "happy" => Mood.HAPPY
     // - invalid => return null (so controller can return 400)
     private Mood parseMoodOrNull(String mood) {
