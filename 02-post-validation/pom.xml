@@ -5,11 +5,11 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.example</groupId>
-    <artifactId>spring-hello-world</artifactId>
+    <groupId>com.training</groupId>
+    <artifactId>lab-02-post-validation</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring-hello-world</name>
-    <description>Spring Boot Hello World Demo</description>
+    <name>lab-02-post-validation</name>
+    <description>Lab 02 - POST with Manual Validation</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
