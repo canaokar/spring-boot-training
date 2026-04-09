@@ -155,7 +155,7 @@ Use the provided `lab-05-spring-validation.rest` file in your IDE (IntelliJ or V
 
 ```bash
 # This will succeed even with garbage data - no validation yet
-curl -X POST http://localhost:8085/api/accounts \
+curl -X POST http://localhost:8080/api/accounts \
   -H "Content-Type: application/json" \
   -d '{"accountNumber":"","sortCode":"","holderName":"","openingBalance":-100}'
 ```
@@ -164,22 +164,22 @@ curl -X POST http://localhost:8085/api/accounts \
 
 ```bash
 # Valid request - should return 201
-curl -X POST http://localhost:8085/api/accounts \
+curl -X POST http://localhost:8080/api/accounts \
   -H "Content-Type: application/json" \
   -d '{"accountNumber":"12345678","sortCode":"12-34-56","holderName":"Jane Smith","openingBalance":500.00}'
 
 # Blank holder name - should return 400
-curl -X POST http://localhost:8085/api/accounts \
+curl -X POST http://localhost:8080/api/accounts \
   -H "Content-Type: application/json" \
   -d '{"accountNumber":"12345678","sortCode":"12-34-56","holderName":"","openingBalance":500.00}'
 
 # Bad account number - should return 400
-curl -X POST http://localhost:8085/api/accounts \
+curl -X POST http://localhost:8080/api/accounts \
   -H "Content-Type: application/json" \
   -d '{"accountNumber":"ABC","sortCode":"12-34-56","holderName":"Jane Smith","openingBalance":500.00}'
 
 # List all accounts - should return 200
-curl http://localhost:8085/api/accounts
+curl http://localhost:8080/api/accounts
 ```
 
 ## Done?

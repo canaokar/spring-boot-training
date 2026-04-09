@@ -1,5 +1,5 @@
 ### 1) Create account (valid) -> 201
-POST http://localhost:8086/api/accounts
+POST http://localhost:8080/api/accounts
 Content-Type: application/json
 
 {
@@ -10,7 +10,7 @@ Content-Type: application/json
 
 
 ### 2) Create duplicate account -> 409
-POST http://localhost:8086/api/accounts
+POST http://localhost:8080/api/accounts
 Content-Type: application/json
 
 {
@@ -21,17 +21,17 @@ Content-Type: application/json
 
 
 ### 3) Get existing account -> 200
-GET http://localhost:8086/api/accounts/12345678
+GET http://localhost:8080/api/accounts/12345678
 Accept: application/json
 
 
 ### 4) Get missing account -> 404
-GET http://localhost:8086/api/accounts/99999999
+GET http://localhost:8080/api/accounts/99999999
 Accept: application/json
 
 
 ### 5) Deposit money -> 200
-PATCH http://localhost:8086/api/accounts/12345678/deposit
+PATCH http://localhost:8080/api/accounts/12345678/deposit
 Content-Type: application/json
 
 {
@@ -40,7 +40,7 @@ Content-Type: application/json
 
 
 ### 6) Withdraw (success) -> 200
-PATCH http://localhost:8086/api/accounts/12345678/withdraw
+PATCH http://localhost:8080/api/accounts/12345678/withdraw
 Content-Type: application/json
 
 {
@@ -49,7 +49,7 @@ Content-Type: application/json
 
 
 ### 7) Withdraw too much -> 400
-PATCH http://localhost:8086/api/accounts/12345678/withdraw
+PATCH http://localhost:8080/api/accounts/12345678/withdraw
 Content-Type: application/json
 
 {

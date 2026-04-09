@@ -1,5 +1,5 @@
 ### 1) Create account (valid) - should return 201
-POST http://localhost:8085/api/accounts
+POST http://localhost:8080/api/accounts
 Content-Type: application/json
 
 {
@@ -11,7 +11,7 @@ Content-Type: application/json
 
 
 ### 2) Create account (blank holderName) - should return 400
-POST http://localhost:8085/api/accounts
+POST http://localhost:8080/api/accounts
 Content-Type: application/json
 
 {
@@ -23,7 +23,7 @@ Content-Type: application/json
 
 
 ### 3) Create account (bad accountNumber - not 8 digits) - should return 400
-POST http://localhost:8085/api/accounts
+POST http://localhost:8080/api/accounts
 Content-Type: application/json
 
 {
@@ -35,7 +35,7 @@ Content-Type: application/json
 
 
 ### 4) Create account (bad sortCode - wrong format) - should return 400
-POST http://localhost:8085/api/accounts
+POST http://localhost:8080/api/accounts
 Content-Type: application/json
 
 {
@@ -47,7 +47,7 @@ Content-Type: application/json
 
 
 ### 5) Create account (negative balance) - should return 400
-POST http://localhost:8085/api/accounts
+POST http://localhost:8080/api/accounts
 Content-Type: application/json
 
 {
@@ -59,7 +59,7 @@ Content-Type: application/json
 
 
 ### 6) Create account (edge case - zero balance) - should return 201
-POST http://localhost:8085/api/accounts
+POST http://localhost:8080/api/accounts
 Content-Type: application/json
 
 {
@@ -71,7 +71,7 @@ Content-Type: application/json
 
 
 ### 7) Create account (edge case - multiple errors) - should return 400 with multiple field errors
-POST http://localhost:8085/api/accounts
+POST http://localhost:8080/api/accounts
 Content-Type: application/json
 
 {
@@ -83,5 +83,5 @@ Content-Type: application/json
 
 
 ### 8) List all accounts - should return 200
-GET http://localhost:8085/api/accounts
+GET http://localhost:8080/api/accounts
 Accept: application/json

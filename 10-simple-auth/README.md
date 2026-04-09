@@ -71,7 +71,7 @@ This is the same pattern used by real authentication systems. The only differenc
   pom.xml
   lab-10-simple-auth.rest                          <-- test requests
   src/main/resources/
-    application.properties                         <-- server.port=8090
+    application.properties                         <-- server.port=8080
   src/main/java/com/training/banking/
     Lab10SimpleAuthApplication.java                <-- pre-built (no changes needed)
     model/
@@ -101,7 +101,7 @@ This is the same pattern used by real authentication systems. The only differenc
 mvn spring-boot:run
 ```
 
-The app starts on **http://localhost:8090**.
+The app starts on **http://localhost:8080**.
 
 ---
 
@@ -129,25 +129,25 @@ Open `lab-10-simple-auth.rest` in IntelliJ or VS Code (with the REST Client exte
 
 ```bash
 # Health check - no key needed (expect 200)
-curl http://localhost:8090/api/public/health
+curl http://localhost:8080/api/public/health
 
 # Get accounts without key (expect 401)
-curl http://localhost:8090/api/admin/accounts
+curl http://localhost:8080/api/admin/accounts
 
 # Get accounts with wrong key (expect 401)
-curl -H "X-API-KEY: wrong-key" http://localhost:8090/api/admin/accounts
+curl -H "X-API-KEY: wrong-key" http://localhost:8080/api/admin/accounts
 
 # Get accounts with valid key (expect 200)
-curl -H "X-API-KEY: secret-key-123" http://localhost:8090/api/admin/accounts
+curl -H "X-API-KEY: secret-key-123" http://localhost:8080/api/admin/accounts
 
 # Create account with valid key (expect 201)
-curl -X POST http://localhost:8090/api/admin/accounts \
+curl -X POST http://localhost:8080/api/admin/accounts \
   -H "Content-Type: application/json" \
   -H "X-API-KEY: secret-key-123" \
   -d '{"accountNumber":"12345678","holderName":"Asha Patel","balance":1000.00}'
 
 # Create account without key (expect 401)
-curl -X POST http://localhost:8090/api/admin/accounts \
+curl -X POST http://localhost:8080/api/admin/accounts \
   -H "Content-Type: application/json" \
   -d '{"accountNumber":"12345678","holderName":"Asha Patel","balance":1000.00}'
 ```

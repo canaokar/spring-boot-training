@@ -57,7 +57,7 @@ When you fetch a Customer, you'll see their accounts in the JSON. But when you l
   pom.xml
   lab-08-jpa-relationships.rest          <-- test all 5 endpoints
   src/main/resources/
-    application.properties               <-- server.port=8088
+    application.properties               <-- server.port=8080
   src/main/java/com/training/banking/
     Lab08JpaRelationshipsApplication.java   <-- pre-built (just the main class)
     entity/
@@ -97,7 +97,7 @@ cd 08-jpa-relationships
 mvn spring-boot:run
 ```
 
-The server starts on **http://localhost:8088**
+The server starts on **http://localhost:8080**
 
 ---
 

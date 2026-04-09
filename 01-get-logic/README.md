@@ -129,7 +129,7 @@ Started Lab01GetLogicApplication in X seconds
 4. Test your endpoint using the `.rest` file in your IDE, or with curl:
 
 ```bash
-curl http://localhost:8081/api/rates?accountType=savings&currency=GBP
+curl http://localhost:8080/api/rates?accountType=savings&currency=GBP
 ```
 
 ---

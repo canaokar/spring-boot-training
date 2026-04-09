@@ -1,0 +1,189 @@
+### ===================================
+### PART 1: Add questions to the quiz
+### ===================================
+
+### 1) Add question - Geography
+POST http://localhost:8080/api/questions
+Content-Type: application/json
+
+{
+  "questionText": "What is the capital of Japan?",
+  "optionA": "Beijing",
+  "optionB": "Seoul",
+  "optionC": "Tokyo",
+  "optionD": "Bangkok",
+  "correctOption": "C",
+  "category": "Geography"
+}
+
+
+### 2) Add question - Science
+POST http://localhost:8080/api/questions
+Content-Type: application/json
+
+{
+  "questionText": "What planet is known as the Red Planet?",
+  "optionA": "Venus",
+  "optionB": "Mars",
+  "optionC": "Jupiter",
+  "optionD": "Saturn",
+  "correctOption": "B",
+  "category": "Science"
+}
+
+
+### 3) Add question - Technology
+POST http://localhost:8080/api/questions
+Content-Type: application/json
+
+{
+  "questionText": "What does HTML stand for?",
+  "optionA": "Hyper Text Markup Language",
+  "optionB": "High Tech Modern Language",
+  "optionC": "Hyper Transfer Markup Language",
+  "optionD": "Home Tool Markup Language",
+  "correctOption": "A",
+  "category": "Technology"
+}
+
+
+### 4) Add question - Technology
+POST http://localhost:8080/api/questions
+Content-Type: application/json
+
+{
+  "questionText": "Which company developed Java?",
+  "optionA": "Microsoft",
+  "optionB": "Apple",
+  "optionC": "Google",
+  "optionD": "Sun Microsystems",
+  "correctOption": "D",
+  "category": "Technology"
+}
+
+
+### 5) Add question - Science
+POST http://localhost:8080/api/questions
+Content-Type: application/json
+
+{
+  "questionText": "What is the chemical symbol for water?",
+  "optionA": "O2",
+  "optionB": "CO2",
+  "optionC": "H2O",
+  "optionD": "NaCl",
+  "correctOption": "C",
+  "category": "Science"
+}
+
+
+### 6) Add question - Geography
+POST http://localhost:8080/api/questions
+Content-Type: application/json
+
+{
+  "questionText": "Which is the largest ocean on Earth?",
+  "optionA": "Atlantic Ocean",
+  "optionB": "Indian Ocean",
+  "optionC": "Arctic Ocean",
+  "optionD": "Pacific Ocean",
+  "correctOption": "D",
+  "category": "Geography"
+}
+
+
+### ===================================
+### PART 2: CRUD operations
+### ===================================
+
+### 7) List all questions (admin view - includes answers)
+GET http://localhost:8080/api/questions
+Accept: application/json
+
+
+### 8) Get one question by ID
+GET http://localhost:8080/api/questions/1
+Accept: application/json
+
+
+### 9) Update a question (change question 3)
+PUT http://localhost:8080/api/questions/3
+Content-Type: application/json
+
+{
+  "questionText": "What does CSS stand for?",
+  "optionA": "Cascading Style Sheets",
+  "optionB": "Computer Style Sheets",
+  "optionC": "Creative Style System",
+  "optionD": "Colorful Style Sheets",
+  "correctOption": "A",
+  "category": "Technology"
+}
+
+
+### 10) Delete a question
+DELETE http://localhost:8080/api/questions/6
+Accept: application/json
+
+
+### ===================================
+### PART 3: Take a quiz!
+### ===================================
+
+### 11) Start a quiz with 3 random questions (no answers shown!)
+GET http://localhost:8080/api/quiz/start?count=3
+Accept: application/json
+
+
+### 12) Start a quiz with default count (5 questions)
+GET http://localhost:8080/api/quiz/start
+Accept: application/json
+
+
+### 13) Submit answers and get your score
+### (Use the question IDs you got from the start endpoint)
+POST http://localhost:8080/api/quiz/submit
+Content-Type: application/json
+
+[
+  { "questionId": 1, "selectedOption": "C" },
+  { "questionId": 2, "selectedOption": "B" },
+  { "questionId": 3, "selectedOption": "A" },
+  { "questionId": 4, "selectedOption": "A" },
+  { "questionId": 5, "selectedOption": "C" }
+]
+
+
+### 14) Submit answers - get some wrong on purpose
+POST http://localhost:8080/api/quiz/submit
+Content-Type: application/json
+
+[
+  { "questionId": 1, "selectedOption": "A" },
+  { "questionId": 2, "selectedOption": "A" },
+  { "questionId": 4, "selectedOption": "D" }
+]
+
+
+### ===================================
+### PART 4: Error cases
+### ===================================
+
+### 15) Get a non-existent question - should get 404
+GET http://localhost:8080/api/questions/999
+Accept: application/json
+
+
+### 16) Start quiz with no questions - first delete all, then try
+### (Only test this if you've deleted all questions!)
+# GET http://localhost:8080/api/quiz/start
+# Accept: application/json
+
+
+### 17) Submit answer for non-existent question - should get 404
+POST http://localhost:8080/api/quiz/submit
+Content-Type: application/json
+
+[
+  { "questionId": 999, "selectedOption": "A" }
+]

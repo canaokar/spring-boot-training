@@ -67,7 +67,7 @@ Think of it as hiring a database clerk who already knows how to file, find, and 
 
 A web page where you can see your database tables and run SQL queries. Like peeking inside the filing cabinet.
 
-After starting the app, visit **http://localhost:8087/h2-console**. Set the JDBC URL to `jdbc:h2:mem:bankingdb` and click Connect. You can see your ACCOUNT table and run SQL!
+After starting the app, visit **http://localhost:8080/h2-console**. Set the JDBC URL to `jdbc:h2:mem:bankingdb` and click Connect. You can see your ACCOUNT table and run SQL!
 
 ---
 
@@ -114,9 +114,9 @@ cd 07-jpa-h2
 mvn spring-boot:run
 ```
 
-The server starts on **http://localhost:8087**
+The server starts on **http://localhost:8080**
 
-After starting the app, visit **http://localhost:8087/h2-console**. Set JDBC URL to `jdbc:h2:mem:bankingdb` and click Connect. You can see your ACCOUNT table and run SQL!
+After starting the app, visit **http://localhost:8080/h2-console**. Set JDBC URL to `jdbc:h2:mem:bankingdb` and click Connect. You can see your ACCOUNT table and run SQL!
 
 ---
 
@@ -177,7 +177,7 @@ Use the `lab-07-jpa-h2.rest` file in IntelliJ or VS Code (with the REST Client e
 
 ### Bonus - try the H2 Console
 
-1. Open http://localhost:8087/h2-console in your browser
+1. Open http://localhost:8080/h2-console in your browser
 2. Set JDBC URL to `jdbc:h2:mem:bankingdb`
 3. Leave username as `sa` and password blank
 4. Click Connect
@@ -199,6 +199,6 @@ Check your work:
 - [ ] GET /api/accounts/{id} returns one account or 404
 - [ ] DELETE /api/accounts/{id} removes the account and returns 204
 - [ ] Deleted accounts return 404 when you try to GET them
-- [ ] H2 Console shows your ACCOUNT table at http://localhost:8087/h2-console
+- [ ] H2 Console shows your ACCOUNT table at http://localhost:8080/h2-console
 
 If everything works, you've just replaced an entire ArrayList-based storage layer with a real database - and you wrote almost no code to do it. That's the power of Spring Data JPA.

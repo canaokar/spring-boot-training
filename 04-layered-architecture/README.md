@@ -126,7 +126,7 @@ cd 04-layered-architecture
 
 Or run `Lab04LayeredArchitectureApplication.java` directly from your IDE.
 
-The app starts on **http://localhost:8084**.
+The app starts on **http://localhost:8080**.
 
 ---
 
@@ -166,24 +166,24 @@ Use the provided `lab-04-layered-architecture.rest` file in IntelliJ, or use cur
 
 ```bash
 # 1. Create an account
-curl -X POST http://localhost:8084/api/accounts \
+curl -X POST http://localhost:8080/api/accounts \
   -H "Content-Type: application/json" \
   -d '{"holderName": "Asha Patel", "sortCode": "12-34-56", "openingBalance": 1500.00}'
 
 # 2. List all accounts
-curl http://localhost:8084/api/accounts
+curl http://localhost:8080/api/accounts
 
 # 3. Get one account (use the accountNumber from step 1)
-curl http://localhost:8084/api/accounts/ACC-1
+curl http://localhost:8080/api/accounts/ACC-1
 
 # 4. Get a missing account - should return 404
-curl http://localhost:8084/api/accounts/ACC-999
+curl http://localhost:8080/api/accounts/ACC-999
 
 # 5. Delete an account
-curl -X DELETE http://localhost:8084/api/accounts/ACC-1
+curl -X DELETE http://localhost:8080/api/accounts/ACC-1
 
 # 6. Verify it is gone
-curl http://localhost:8084/api/accounts
+curl http://localhost:8080/api/accounts
 ```
 
 ---

@@ -84,7 +84,7 @@ accounts.remove(oldAccount);  // list shrinks
   pom.xml
   lab-03-full-crud.rest              <-- test requests for all 7 endpoints
   src/main/resources/
-    application.properties           <-- server.port=8083
+    application.properties           <-- server.port=8080
   src/main/java/com/training/banking/
     Lab03FullCrudApplication.java    <-- YOUR WORK GOES HERE (7 TODOs)
     Account.java                     <-- pre-built model (has getters AND setters)
@@ -112,7 +112,7 @@ cd 03-full-crud
 mvn spring-boot:run
 ```
 
-The server starts on **http://localhost:8083**
+The server starts on **http://localhost:8080**
 
 ---
 

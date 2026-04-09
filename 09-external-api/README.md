@@ -143,16 +143,16 @@ Or use curl:
 
 ```bash
 # Convert 100 GBP to USD - should return 200 with conversion result
-curl "http://localhost:8089/api/convert?from=GBP&to=USD&amount=100"
+curl "http://localhost:8080/api/convert?from=GBP&to=USD&amount=100"
 
 # Convert 250 GBP to EUR - should return 200
-curl "http://localhost:8089/api/convert?from=GBP&to=EUR&amount=250"
+curl "http://localhost:8080/api/convert?from=GBP&to=EUR&amount=250"
 
 # Convert 50 USD to GBP - should return 200
-curl "http://localhost:8089/api/convert?from=USD&to=GBP&amount=50"
+curl "http://localhost:8080/api/convert?from=USD&to=GBP&amount=50"
 
 # Invalid currency - should return 400 with error
-curl "http://localhost:8089/api/convert?from=XYZ&to=USD&amount=100"
+curl "http://localhost:8080/api/convert?from=XYZ&to=USD&amount=100"
 ```
 
 A successful response looks like:

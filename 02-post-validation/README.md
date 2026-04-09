@@ -91,7 +91,7 @@ This is intentionally manual. In later labs you will learn annotation-based vali
   pom.xml
   lab-02-post-validation.rest          <-- test requests (run these in IntelliJ/VS Code)
   src/main/resources/
-    application.properties             <-- server.port=8082
+    application.properties             <-- server.port=8080
   src/main/java/com/training/banking/
     Lab02PostValidationApplication.java  <-- YOUR WORK GOES HERE (TODOs 1-9)
     CreateAccountRequest.java            <-- pre-built DTO (no changes needed)
@@ -114,7 +114,7 @@ This is intentionally manual. In later labs you will learn annotation-based vali
 mvn spring-boot:run
 ```
 
-The app starts on **http://localhost:8082**.
+The app starts on **http://localhost:8080**.
 
 ---
 
@@ -154,38 +154,38 @@ Open `lab-02-post-validation.rest` in IntelliJ or VS Code (with the REST Client 
 
 ```bash
 # Create an account (expect 201)
-curl -X POST http://localhost:8082/api/accounts \
+curl -X POST http://localhost:8080/api/accounts \
   -H "Content-Type: application/json" \
   -d '{"accountNumber":"12345678","sortCode":"12-34-56","holderName":"Asha Patel","openingBalance":1000.00}'
 
 # Get the account (expect 200)
-curl http://localhost:8082/api/accounts/12345678
+curl http://localhost:8080/api/accounts/12345678
 
 # Get a missing account (expect 404)
-curl http://localhost:8082/api/accounts/99999999
+curl http://localhost:8080/api/accounts/99999999
 
 # Missing holder name (expect 400)
-curl -X POST http://localhost:8082/api/accounts \
+curl -X POST http://localhost:8080/api/accounts \
   -H "Content-Type: application/json" \
   -d '{"accountNumber":"22222222","sortCode":"11-22-33","holderName":"","openingBalance":100.00}'
 
 # Bad account number (expect 400)
-curl -X POST http://localhost:8082/api/accounts \
+curl -X POST http://localhost:8080/api/accounts \
   -H "Content-Type: application/json" \
   -d '{"accountNumber":"123","sortCode":"11-22-33","holderName":"Bad Account","openingBalance":100.00}'
 
 # Bad sort code (expect 400)
-curl -X POST http://localhost:8082/api/accounts \
+curl -X POST http://localhost:8080/api/accounts \
   -H "Content-Type: application/json" \
   -d '{"accountNumber":"33333333","sortCode":"1234-56","holderName":"Bad Sort Code","openingBalance":100.00}'
 
 # Negative balance (expect 400)
-curl -X POST http://localhost:8082/api/accounts \
+curl -X POST http://localhost:8080/api/accounts \
   -H "Content-Type: application/json" \
   -d '{"accountNumber":"44444444","sortCode":"11-22-33","holderName":"Negative","openingBalance":-50.00}'
 
 # Duplicate account (run the first curl again, expect 409)
-curl -X POST http://localhost:8082/api/accounts \
+curl -X POST http://localhost:8080/api/accounts \
   -H "Content-Type: application/json" \
   -d '{"accountNumber":"12345678","sortCode":"12-34-56","holderName":"Duplicate","openingBalance":500.00}'
 ```

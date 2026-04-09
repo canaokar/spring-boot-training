@@ -1,5 +1,5 @@
 ### 1) Create account (valid) - expect 201 Created
-POST http://localhost:8082/api/accounts
+POST http://localhost:8080/api/accounts
 Content-Type: application/json
 
 {
@@ -11,7 +11,7 @@ Content-Type: application/json
 
 
 ### 2) Create duplicate account - expect 409 Conflict
-POST http://localhost:8082/api/accounts
+POST http://localhost:8080/api/accounts
 Content-Type: application/json
 
 {
@@ -23,7 +23,7 @@ Content-Type: application/json
 
 
 ### 3) Missing holder name - expect 400 Bad Request
-POST http://localhost:8082/api/accounts
+POST http://localhost:8080/api/accounts
 Content-Type: application/json
 
 {
@@ -35,7 +35,7 @@ Content-Type: application/json
 
 
 ### 4) Bad account number (too short) - expect 400 Bad Request
-POST http://localhost:8082/api/accounts
+POST http://localhost:8080/api/accounts
 Content-Type: application/json
 
 {
@@ -47,7 +47,7 @@ Content-Type: application/json
 
 
 ### 5) Bad account number (contains letters) - expect 400 Bad Request
-POST http://localhost:8082/api/accounts
+POST http://localhost:8080/api/accounts
 Content-Type: application/json
 
 {
@@ -59,7 +59,7 @@ Content-Type: application/json
 
 
 ### 6) Bad sort code format - expect 400 Bad Request
-POST http://localhost:8082/api/accounts
+POST http://localhost:8080/api/accounts
 Content-Type: application/json
 
 {
@@ -71,7 +71,7 @@ Content-Type: application/json
 
 
 ### 7) Negative opening balance - expect 400 Bad Request
-POST http://localhost:8082/api/accounts
+POST http://localhost:8080/api/accounts
 Content-Type: application/json
 
 {
@@ -83,17 +83,17 @@ Content-Type: application/json
 
 
 ### 8) Get existing account - expect 200 OK (run test 1 first)
-GET http://localhost:8082/api/accounts/12345678
+GET http://localhost:8080/api/accounts/12345678
 Accept: application/json
 
 
 ### 9) Get missing account - expect 404 Not Found
-GET http://localhost:8082/api/accounts/99999999
+GET http://localhost:8080/api/accounts/99999999
 Accept: application/json
 
 
 ### 10) Create second valid account - expect 201 Created
-POST http://localhost:8082/api/accounts
+POST http://localhost:8080/api/accounts
 Content-Type: application/json
 
 {

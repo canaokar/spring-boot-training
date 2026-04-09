@@ -76,7 +76,7 @@ throw new AccountNotFoundException("12345678");
   pom.xml
   lab-06-exception-handling.rest          <-- test file for VS Code REST Client
   src/main/resources/
-    application.properties                <-- server.port=8086
+    application.properties                <-- server.port=8080
   src/main/java/com/training/banking/
     Lab06ExceptionHandlingApplication.java    [PRE-BUILT]
     model/
@@ -116,7 +116,7 @@ Or if you don't have the Maven wrapper yet:
 mvn spring-boot:run
 ```
 
-The app starts on **http://localhost:8086**.
+The app starts on **http://localhost:8080**.
 
 > The app will NOT compile until you complete TODOs 1-3, because the service and controller reference these exception classes.
 
@@ -177,45 +177,45 @@ Open `lab-06-exception-handling.rest` in VS Code with the REST Client extension,
 
 **1. Create an account (expect 201):**
 ```bash
-curl -s -w "\nHTTP Status: %{http_code}\n" -X POST http://localhost:8086/api/accounts \
+curl -s -w "\nHTTP Status: %{http_code}\n" -X POST http://localhost:8080/api/accounts \
   -H "Content-Type: application/json" \
   -d '{"accountNumber":"12345678","holderName":"Asha Patel","openingBalance":1000}'
 ```
 
 **2. Create the same account again (expect 409):**
 ```bash
-curl -s -w "\nHTTP Status: %{http_code}\n" -X POST http://localhost:8086/api/accounts \
+curl -s -w "\nHTTP Status: %{http_code}\n" -X POST http://localhost:8080/api/accounts \
   -H "Content-Type: application/json" \
   -d '{"accountNumber":"12345678","holderName":"Someone Else","openingBalance":500}'
 ```
 
 **3. Get existing account (expect 200):**
 ```bash
-curl -s -w "\nHTTP Status: %{http_code}\n" http://localhost:8086/api/accounts/12345678
+curl -s -w "\nHTTP Status: %{http_code}\n" http://localhost:8080/api/accounts/12345678
 ```
 
 **4. Get missing account (expect 404):**
 ```bash
-curl -s -w "\nHTTP Status: %{http_code}\n" http://localhost:8086/api/accounts/99999999
+curl -s -w "\nHTTP Status: %{http_code}\n" http://localhost:8080/api/accounts/99999999
 ```
 
 **5. Deposit money (expect 200):**
 ```bash
-curl -s -w "\nHTTP Status: %{http_code}\n" -X PATCH http://localhost:8086/api/accounts/12345678/deposit \
+curl -s -w "\nHTTP Status: %{http_code}\n" -X PATCH http://localhost:8080/api/accounts/12345678/deposit \
   -H "Content-Type: application/json" \
   -d '{"amount":250}'
 ```
 
 **6. Withdraw - success (expect 200):**
 ```bash
-curl -s -w "\nHTTP Status: %{http_code}\n" -X PATCH http://localhost:8086/api/accounts/12345678/withdraw \
+curl -s -w "\nHTTP Status: %{http_code}\n" -X PATCH http://localhost:8080/api/accounts/12345678/withdraw \
   -H "Content-Type: application/json" \
   -d '{"amount":200}'
 ```
 
 **7. Withdraw too much (expect 400):**
 ```bash
-curl -s -w "\nHTTP Status: %{http_code}\n" -X PATCH http://localhost:8086/api/accounts/12345678/withdraw \
+curl -s -w "\nHTTP Status: %{http_code}\n" -X PATCH http://localhost:8080/api/accounts/12345678/withdraw \
   -H "Content-Type: application/json" \
   -d '{"amount":99999}'
 ```
